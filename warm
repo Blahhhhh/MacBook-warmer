@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$1" == "enough" ]
+then
+    pkill -9 '^yes'
+else
+    for i in $(seq `sysctl -n hw.ncpu`)
+    do
+        yes > /dev/null &
+    done 
+fi
